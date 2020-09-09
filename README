@@ -1,0 +1,31 @@
+Stage 1
+---
+docker build -t hello-go .
+docker run -d -p 8080:8080 --name hello-go-app hello-go:latest
+Now you will be able to access hello world wep page throw below link
+http://127.0.0.1:8080
+-------------------
+Stage 2
+---
+Now let's push this image to our github registry 
+docker push username/hello-go:latest
+for examole 
+docker push amrmohamady/hello-go:latest
+----------------------------
+Stage 3
+---
+Deploying to Kubernetes cluster
+kubectl create -f go-app.yml
+kubectl get deployments
+kubectl get pods
+kubectl get svc
+----------------------------
+Stage 4
+---
+Testing - access the app
+Go to browser with your cluster master ip:nodePort
+
+
+Great! Now we've just deployed our go application to Kubernetes cluster
+
+
